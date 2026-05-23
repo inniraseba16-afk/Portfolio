@@ -1,138 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innocent Iradukunda | Geologist</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-      body {
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Innocent Iradukunda | Full-Stack Developer</title>
+
+<style>
+    * {
         margin: 0;
-        font-family: Arial, sans-serif;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background: #0f172a;
+        color: #e2e8f0;
         line-height: 1.6;
-      }
-      header {
-        padding: 1rem;
-        text-align: center;
-        background: #f3f3f3;
-      }
-      nav a {
-        margin: 0 0.75rem;
-        color: darkgreen;
+    }
+
+    /* NAVBAR */
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 50px;
+        z-index: 1000;
+        border-bottom: 1px solid #1e293b;
+    }
+
+    header h2 {
+        color: #38bdf8;
+    }
+
+    nav a {
+        margin-left: 20px;
         text-decoration: none;
-      }
-      .hero {
+        color: #e2e8f0;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        color: #38bdf8;
+    }
+
+    /* HERO */
+    .hero {
+        height: 100vh;
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
-        gap: 1rem;
-        padding: 2rem 1rem;
+        align-items: center;
         text-align: center;
-        background: #eef9f2;
-      }
-      .hero img.profile-pic {
+        padding: 0 20px;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        color: #38bdf8;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    .hero .profile-pic {
         width: 180px;
         height: 180px;
         border-radius: 50%;
         object-fit: cover;
-        border: 4px solid darkgreen;
-      }
-      #greetings {
-        background-color: aqua;
-        border-color: brown;
-        padding: 0.25rem 0.75rem;
-        border-radius: 0.5rem;
-      }
-      .projects {
-        display: grid;
-        gap: 1rem;
-        padding: 1rem;
-      }
-      .project-card {
-        border: 1px solid #ccc;
-        border-radius: 0.75rem;
-        padding: 1rem;
-        background: #fff;
-      }
-      .contact, footer {
-        padding: 1rem;
-        text-align: center;
-      }
-      button {
-        background: darkgreen;
-        color: white;
+        border: 4px solid #38bdf8;
+        margin-bottom: 25px;
+        box-shadow: 0 10px 30px rgba(56, 189, 248, 0.25);
+    }
+
+    .hero p {
+        max-width: 700px;
+        margin-top: 20px;
+        color: #cbd5e1;
+    }
+
+    .buttons {
+        margin-top: 25px;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        margin: 5px;
         border: none;
-        border-radius: 999px;
-        padding: 0.8rem 1.5rem;
         cursor: pointer;
-      }
-    </style>
+        border-radius: 8px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .btn-primary {
+        background: #38bdf8;
+        color: #0f172a;
+    }
+
+    .btn-outline {
+        border: 2px solid #38bdf8;
+        background: transparent;
+        color: #38bdf8;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+    }
+
+    /* SECTIONS */
+    section {
+        padding: 80px 10%;
+    }
+
+    h2.section-title {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+        color: #38bdf8;
+    }
+
+    /* ABOUT */
+    .about p {
+        text-align: center;
+        max-width: 800px;
+        margin: auto;
+        color: #cbd5e1;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .skill-card {
+        background: #1e293b;
+        padding: 20px;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-5px);
+        background: #273449;
+    }
+
+    /* PROJECTS */
+    .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .project-card {
+        background: #1e293b;
+        padding: 20px;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+    .project-card:hover {
+        transform: scale(1.03);
+    }
+
+    /* SERVICES */
+    .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .service {
+        background: #1e293b;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    /* CONTACT */
+    .contact {
+        text-align: center;
+    }
+
+    .contact a {
+        color: #38bdf8;
+        text-decoration: none;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        border-top: 1px solid #1e293b;
+        margin-top: 40px;
+        color: #94a3b8;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(-20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    @media(max-width:768px){
+        header {
+            flex-direction: column;
+        }
+    }
+</style>
 </head>
 
 <body>
-  <header>
-    <h1 style="color:darkgreen; font-style: italic; font-size: 72px;">Innocent Iradukunda - Portfolio</h1>
+
+<header>
+    <h2>Innocent Iradukunda</h2>
     <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
     </nav>
-  </header>
+</header>
 
-  <section class="hero">
-    <img class="profile-pic" src="multimedia/images/IMG_8031.jpg" alt="Profile picture of Innocent Iradukunda">
-    <h3 id="greetings">Hello, I'm</h3>
-    <h1>Innocent Iradukunda</h1>
-    <p>Geologist | Full-stack Developer | Field Coordinator | Graphic Designer</p>
-    <button>Download CV</button>
-  </section>
-
-  <section id="about">
-    <h2 class="about">About Me</h2>
+<!-- HERO -->
+<section class="hero">
+    <img src="images/IMG_8031.jpg" alt="Profile picture of Innocent Iradukunda" class="profile-pic" />
+    <h1>Building Modern Websites, Mobile Apps, and Digital Solutions That Make an Impact</h1>
     <p>
-        I am a <b>Bachelor</b> of Science with Honors in <i>Applied Geology</i> graduate, <b>certified Full-Stack Developer</b> by the <mark>Ministry of ICT and Innovation</mark>, and skilled <b>Graphic Designer.</b>
-        With over five years of experience as a <b>Field Coordinator</b> at the <mark>African Students' Education Fund</mark>, I have developed strong <u>project coordination, leadership, and problem-solving skills.</u>
+        I am an aspiring Full-Stack Developer and Software Engineer passionate about creating responsive websites,
+        scalable applications, and efficient database systems.
     </p>
-  </section>
 
-  <section>
-    <h2>My Projects</h2>
+    <div class="buttons">
+        <button class="btn btn-primary">View My Projects</button>
+        <button class="btn btn-outline">Contact Me</button>
+        <button class="btn btn-outline">Download CV</button>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+    <h2 class="section-title">About Me</h2>
+    <p>
+        Hello! My name is Innocent Iradukunda, a Software Engineer and Programmer.
+        I specialize in front-end, back-end, mobile development, and database management.
+        I love turning ideas into real digital products that solve problems and improve user experience.
+    </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h2 class="section-title">Skills</h2>
+
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h3>Front-End</h3>
+            <p>HTML, CSS, JavaScript, Responsive Design</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Back-End</h3>
+            <p>Node.js, Express.js, PHP, REST APIs</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Databases</h3>
+            <p>MySQL, PostgreSQL, MongoDB</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Mobile Apps</h3>
+            <p>React Native, Flutter (Learning), Android Basics</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Tools</h3>
+            <p>Git, GitHub, VS Code, Figma, Firebase</p>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h2 class="section-title">Portfolio Projects</h2>
 
     <div class="projects">
+        <div class="project-card">
+            <h3>Student Management System</h3>
+            <p>Web system for managing students, attendance, and reports.</p>
+            <small>HTML, CSS, JS, Node.js, MySQL</small>
+        </div>
 
-      <div class="project-card">
-        <h3>Portfolio Website</h3>
-        <p>A simple responsive personal portfolio website using HTML and CSS.</p>
-      </div>
-
-      <div class="project-card">
-        <h3>Portfolio Graphic Designs</h3>
-        <p>Stunning graphics by using photoshop, canva and other designing tools.</p>
-      </div>
-
-      <div class="project-card">
-        <h3>Project Coordination</h3>
-        <p>Planning and execution with passion.</p>
-      </div>
-
-      <div class="project-card">
-        <h3>Student Advisory Program</h3>
-        <p>A mentorship and academic guidance initiative for high school students.</p>
-      </div>
-
+        <div class="project-card">
+            <h3>Event Management Website</h3>
+            <p>Platform for booking decoration, photography, and events.</p>
+            <small>React, Express, MongoDB</small>
+        </div>
     </div>
-  </section>
+</section>
 
-  <section id="contact" class="contact">
-    <h2>Contact Me</h2>
-    <p>Email: inniraseba16@gmail.com</p>
-    <p>Phone: +250 784 036 293</p>
-  </section>
+<!-- SERVICES -->
+<section id="services">
+    <h2 class="section-title">Services</h2>
 
-  <footer>
-    <p>&copy; 2026 Innocent Iradukunda. All Rights Reserved.</p>
-  </footer>
+    <div class="services">
+        <div class="service">Web Design</div>
+        <div class="service">Website Development</div>
+        <div class="service">Mobile App Development</div>
+        <div class="service">Database Development</div>
+        <div class="service">UI/UX Design</div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <h2 class="section-title">Contact Me</h2>
+
+    <p>Let’s build something amazing together.</p>
+    <p>Email: <a href="mailto:inniraseba16@gmail.com">inniraseba16@gmail.com</a></p>
+    <p>Phone: +250 784036293</p>
+    <p>GitHub: github.com/inniraseba16-afk</p>
+    <p>LinkedIn: linkedin.com/in/innocent-iradukunda-a11ab2196/</p>
+</section>
+
+<footer>
+    © 2026 Innocent Iradukunda. All Rights Reserved. <br/>
+    “Turning ideas into modern digital experiences.”
+</footer>
 
 </body>
 </html>
